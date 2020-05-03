@@ -1,11 +1,11 @@
 import users from './data.mjs'
 
-// TODO: Get all emails that end with .org
-/* const orgUsers = users.filter(({ email, website }) => email.endsWith('.org') || website.endsWith('.org'))
+const nums = [1, 2, 3, 4, 5, 6]
 
-const orgUserEmails = orgUsers.map(({ email }) => email) */
-
-// using destructuring here to look only at email & website
-const orgUserEmails = users.filter(({ email, website }) => email.endsWith('.org') || website.endsWith('.org')).map(({ email }) => email)
-
-console.log(orgUserEmails)
+// total is initialized with first value in array
+const sum = nums.reduce(function (total, currentNumber) {
+  console.log(`total is: ${total}`, `current number is: ${currentNumber}`)
+  total += currentNumber
+  console.log(total, currentNumber)
+  return total
+})
