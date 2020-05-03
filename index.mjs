@@ -1,13 +1,27 @@
 import users from './data.mjs'
 
-// TODO 'map' over 'users and assign each 'user' to 'The Umbrella Corporation'
+const me = {
+  name: 'Manav'
+}
 
-// The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
-const umbrellaUsers = users.map(function (user) {
-  user.company.name = 'The Umbrella Corporation'
-  return user
-})
+const planet = 'Earth'
 
-console.log(umbrellaUsers)
+// parameter is an object--OBJECTS ARE PASSED BY REFERENCE
+function changeName (person) {
+  person.name = 'Dhanav'
+  return person
+}
 
-console.log(users) // user.company.name is also mutated here
+// parameter is a string--PRIMITIVES ARE PASSED BY COPY
+function changePlanet (currentPlanet) {
+  currentPlanet = 'Epsilon Eridani II'
+  return currentPlanet
+}
+
+const newMe = changeName(me)
+const newPlanet = changePlanet(planet)
+
+console.log(`planet is: ${planet}`)
+console.log(`newPlanet is : ${newPlanet}`)
+console.log(`me is ${me.name}`)
+console.log(`newMe is ${newMe.name}`)
