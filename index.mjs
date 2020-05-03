@@ -1,13 +1,12 @@
 import users from './data.mjs'
 
-import cloneDeep from 'lodash.clonedeep'
+// TODO: FILTER out all of the 'plurals'
+const groceryList = ['Apples', 'Bananas', 'TP', 'Bars', 'Bacon', 'Eggs']
 
-// const umbrellaUsers = users.map(function (user)
-const umbrellaUsers = users.map((user) => {
-  const clonedUser = cloneDeep(user) // clonedUser is a coder created name; cloneDeep is NOT--it is a name from node_modules
-  clonedUser.company.name = 'The Umbrella Corporation'
-  return clonedUser
+const plurals = groceryList.filter(function (item) {
+  // Does the item end with the letter 's'?
+  // RETURNS current element ('item') if callback RETURNS TRUE
+  return item.endsWith('s')
 })
 
-console.log(umbrellaUsers)
-console.log(users)
+console.log(plurals, groceryList)
