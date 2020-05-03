@@ -1,27 +1,13 @@
 import users from './data.mjs'
 
-const me = {
-  name: 'Manav'
-}
+import cloneDeep from 'lodash.clonedeep'
 
-const planet = 'Earth'
+// const umbrellaUsers = users.map(function (user)
+const umbrellaUsers = users.map((user) => {
+  const clonedUser = cloneDeep(user) // clonedUser is a coder created name; cloneDeep is NOT--it is a name from node_modules
+  clonedUser.company.name = 'The Umbrella Corporation'
+  return clonedUser
+})
 
-// parameter is an object--OBJECTS ARE PASSED BY REFERENCE
-function changeName (person) {
-  person.name = 'Dhanav'
-  return person
-}
-
-// parameter is a string--PRIMITIVES ARE PASSED BY COPY
-function changePlanet (currentPlanet) {
-  currentPlanet = 'Epsilon Eridani II'
-  return currentPlanet
-}
-
-const newMe = changeName(me)
-const newPlanet = changePlanet(planet)
-
-console.log(`planet is: ${planet}`)
-console.log(`newPlanet is : ${newPlanet}`)
-console.log(`me is ${me.name}`)
-console.log(`newMe is ${newMe.name}`)
+console.log(umbrellaUsers)
+console.log(users)
