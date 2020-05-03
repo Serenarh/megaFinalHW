@@ -1,14 +1,13 @@
 import users from './data.mjs'
 
-console.log(users)
+// TODO 'map' over 'users and assign each 'user' to 'The Umbrella Corporation'
 
-const groceryList = ['Apples', 'Bananas', 'TP', 'Bars', 'Bacon', 'Eggs']
-
-// TODO 'map' over 'groceryList' and 'transform' each item by adding 'from Schnucks'
-// function (item) is a callback function
-const schnuckList = groceryList.map(function (item) {
-  item += ' from Schnucks' // item = item + 'from Schnucks'
-  return item
+// The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+const umbrellaUsers = users.map(function (user) {
+  user.company.name = 'The Umbrella Corporation'
+  return user
 })
 
-console.log(schnuckList, groceryList) // map creates a new, separate array while (generally) leaving the original array intact
+console.log(umbrellaUsers)
+
+console.log(users) // user.company.name is also mutated here
